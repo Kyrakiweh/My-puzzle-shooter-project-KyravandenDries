@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour {
     public float movespeed = 15;
-    private Vector3 movedir;
+    private Vector3 moveDirection;
 
 	// Use this for initialization
 	void Start () {
@@ -13,11 +13,11 @@ public class Playercontroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        movedir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
 
 	}
     private void FixedUpdate()
     {
-        rigidbody.MovePosition(rigidbody.position + Transform.TransformDirection()
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection));
     }
 }
