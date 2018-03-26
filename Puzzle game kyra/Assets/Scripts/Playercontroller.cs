@@ -8,13 +8,18 @@ public class Playercontroller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Cursor.lockState = CursorLockMode.Locked;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        
 
+        
+
+        if (Input.GetKeyDown("escape"))
+            Cursor.lockState = CursorLockMode.None;
 	}
     private void FixedUpdate()
     {
